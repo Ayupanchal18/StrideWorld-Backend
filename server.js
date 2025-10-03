@@ -17,8 +17,12 @@ connectDB();
 const app = express();
 
 // // //middelwares
+const allowedOrigins = [
+  "http://localhost:3000",              // for local dev
+  "https://your-frontend.onrender.com"  // your deployed React app
+];
 app.use(cors({
-  origin: 'https://stride-world-front-end.vercel.app',
+  origin: allowedOrigins,
   credentials: true
 }));
 app.use(express.json());
